@@ -24,11 +24,13 @@ function init() {
             typeDefs: `
     type Query{
         hello: String
+        say(name: String): String
     }
     `,
             resolvers: {
                 Query: {
                     hello: () => `Hey there, I am a graphql server`,
+                    say: (_, { name }) => `Hey ${name}, How are you?`,
                 },
             },
         });
